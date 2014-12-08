@@ -23,10 +23,10 @@ function uptoken(bucketname) {
 
 function qiniuUptoken(req, res) {
   if(req.user){
-    res.success({"token":uptoken(bucketName),"user":req.user});
+    res.success({"token":uptoken(bucketName)});
   }
   else{
-    res.error({"msg":"must login"})
+    res.error("must login")
   }
 }
 
