@@ -22,7 +22,12 @@ function uptoken(bucketname) {
 }
 
 function qiniuUptoken(req, res) {
-  res.success({"token":uptoken(bucketName)});
+  if(req.user){
+    res.success({"token":uptoken(bucketName)});
+  }
+  else{
+    res.error({"msg":"must login"})
+  }
 }
 
 exports.uptoken = uptoken;
