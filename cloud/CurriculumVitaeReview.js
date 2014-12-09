@@ -33,11 +33,14 @@ function AfterSave(request){
                   }
               }
           }
-
-          cv.set("comment_users",cvuserlist)
-          cv.set("comment_count",cvrlist_len)
-          cv.set("tags",tagslist)
-          cv.save()
+          var cvrquery=new AV.Query(CurriculumVitae).get(cv.id,{
+              success:function(cv_save){
+                  cv_save.set("comment_users",cvuserlist)
+                  cv_save.set("comment_count",cvrlist_len)
+                  cv_save.set("tags",tagslist)
+                  cv_save.save()
+              }
+          });
       },
       error: function(error) {
       }
