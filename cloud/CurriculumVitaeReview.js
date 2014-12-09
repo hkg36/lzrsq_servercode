@@ -7,11 +7,12 @@ function AfterSave(request){
     cvc=request.object
     cvid=cvc.get("cvid")
     uid=cvc.get("uid")
-    var cvrquery= AV.Query(CurriculumVitaeReview)
-    cvrquery.equalTo("cvid",cvid)
+
     var cvrlist_len=0
     var cvuserlist=null
     var tagslist={}
+    var cvrquery= AV.Query(CurriculumVitaeReview);
+    cvrquery.equalTo("cvid",cvid)
     cvrquery.find({
       success: function(results) {
           cvrlist_len=results.length
