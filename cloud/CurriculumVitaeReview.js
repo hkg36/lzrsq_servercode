@@ -4,9 +4,9 @@
 var CurriculumVitae=AV.Object.extend("CurriculumVitae")
 var CurriculumVitaeReview=AV.Object.extend("CurriculumVitaeReview")
 function AfterSave(request){
-    cvc=request.object
-    cv=cvc.get("cv")
-    user=cvc.get("user")
+    var cvc=request.object
+    var cv=cvc.get("cv")
+    var user=cvc.get("user")
 
     var cvrlist_len=0
     var cvuserlist=null
@@ -37,7 +37,7 @@ function AfterSave(request){
       error: function(error) {
       }
     })
-      cv.set(("comment_users",cvuserlist)
+      cv.set("comment_users",cvuserlist)
       cv.set("comment_count",cvrlist_len)
       cv.set("tags",tagslist)
       cv.save()
