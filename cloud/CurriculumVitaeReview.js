@@ -6,8 +6,8 @@ var CurriculumVitaeReview=AV.Object.extend("CurriculumVitaeReview")
 function allvalues(obj)
 {
   pp=new Array()
-  for(var key in kk) {
-    pp.push(kk[key])
+  for(var key in obj) {
+    pp.push(obj[key])
   }
   return pp
 }
