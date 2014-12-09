@@ -12,6 +12,7 @@ function AfterSave(request){
     var cvuserlist=null
     var tagslist={}
     var cvrquery= AV.Query(CurriculumVitaeReview);
+    console.log("cvrquery:"+cvrquery);
     cvrquery.equalTo("cvid",cvid)
     cvrquery.find({
       success: function(results) {
