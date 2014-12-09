@@ -8,8 +8,8 @@ function AfterSave(request){
     var cv=cvc.get("cv")
     console.log("cv:"+cv)
     var cvrlist_len=0
-    var cvuserlist=null
-    var tagslist=new Array()
+    var cvuserlist=new Array()
+    var tagslist={}
     var cvrquery=new AV.Query(CurriculumVitaeReview);
     cvrquery.equalTo("cv",cv)
     cvrquery.find({
@@ -19,7 +19,7 @@ function AfterSave(request){
           var tmpuids={}
           for (var i = 0; i < results.length; i++) {
               var cvc = results[i];
-              tagslist.push(cvc.get("user"))
+              cvuserlist.push(cvc.get("user"))
               var tags=cvc.get("tags")
               for(var tagi=0;tagi<tags.length;tagi++)
               {
